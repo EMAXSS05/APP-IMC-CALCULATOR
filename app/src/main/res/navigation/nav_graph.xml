@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/imcCalculatorFragment">
+
+    <fragment
+        android:id="@+id/imcCalculatorFragment"
+        android:name="com.example.appimccalculator.ImcCalculatorFragment"
+        android:label="fragment_imc_calculator"
+        tools:layout="@layout/fragment_imc_calculator" />
+    <fragment
+        android:id="@+id/resultIMCFragment"
+        android:name="com.example.appimccalculator.ResultIMCFragment"
+        android:label="fragment_result_i_m_c"
+        tools:layout="@layout/fragment_result_i_m_c" />
+</navigation>
