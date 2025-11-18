@@ -7,17 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.compose.ui.semantics.text
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ImcCalculatorFragment : Fragment() {
 
-    // La inicializamos en 0, como pediste.
-    private var pesoActual = 0
+
+    private var pesoActual = 1
+    private var edadActual=1
 
     // Referencias a las vistas que vamos a manipular
     private lateinit var tvPeso: TextView
-    private lateinit var btnSumarPeso: Button
-    private lateinit var btnRestarPeso: Button
+
+    private lateinit var tvEdad: TextView
+    private lateinit var btnSumarEdad: FloatingActionButton
+    private lateinit var btnRestarEdad: FloatingActionButton
+
+    private lateinit var btnSumarPeso: FloatingActionButton
+    private lateinit var btnRestarPeso: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +40,13 @@ class ImcCalculatorFragment : Fragment() {
         tvPeso = view.findViewById(R.id.tvPeso)
         btnSumarPeso = view.findViewById(R.id.btnSumarPeso)
         btnRestarPeso = view.findViewById(R.id.btnRestarPeso)
+        tvEdad= view.findViewById(R.id.tvEdad)
+        btnRestarEdad= view.findViewById(R.id.btnRestarEdad)
+        btnSumarEdad= view.findViewById(R.id.btnSUmarEdad)
 
         // 2. Actualizar la UI con el valor inicial
         actualizarTextoPeso()
+        actualizarTextoEdad()
 
         // 3. Configurar el listener para el botón de sumar
         btnSumarPeso.setOnClickListener {
@@ -49,16 +59,34 @@ class ImcCalculatorFragment : Fragment() {
         // 4. Configurar el listener para el botón de restar (¡te lo añado como extra!)
         btnRestarPeso.setOnClickListener {
             // Solo restamos si el peso es mayor que 0
-            if (pesoActual > 0) {
+            if (pesoActual > 1) {
                 // Decrementamos el valor
                 pesoActual -= 1
                 // Actualizamos el texto en la pantalla
                 actualizarTextoPeso()
             }
         }
+
+        btnRestarEdad.setOnClickListener {
+            if (edadActual >1){
+                edadActual -=1
+                actualizarTextoEdad()
+            }
+        }
+
+        btnSumarEdad.setOnClickListener {
+            if (edadActual >=1 && edadActual <100){
+                edadActual +=1
+                actualizarTextoEdad()
+            }
+        }
     }
     private fun actualizarTextoPeso() {
         tvPeso.text = pesoActual.toString()
+    }
+
+    private fun actualizarTextoEdad(){
+        tvEdad.text= edadActual.toString()
     }
 
 
