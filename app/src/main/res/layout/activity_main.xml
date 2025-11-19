@@ -3,35 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/MaterialAlertDialog.Material3.Body.Text"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <com.google.android.material.appbar.MaterialToolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="?attr/colorPrimary"
+        style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
+        android:layout_width="0dp"
+        android:background="@color/morado"
+
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="AndroidMaster"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        tools:layout_editor_absoluteX="0dp" />
+        app:titleTextColor="@color/white" />
+
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_view"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_container_view"
-        tools:context=".MainActivity"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/nav_graph"
         app:defaultNavHost="true"
-        >
+        app:navGraph="@navigation/nav_graph"
+        tools:context=".MainActivity">
 
     </androidx.fragment.app.FragmentContainerView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

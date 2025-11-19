@@ -9,10 +9,30 @@
         android:id="@+id/imcCalculatorFragment"
         android:name="com.example.appimccalculator.ImcCalculatorFragment"
         android:label="fragment_imc_calculator"
-        tools:layout="@layout/fragment_imc_calculator" />
+        tools:layout="@layout/fragment_imc_calculator">
+
+        <action
+            android:id="@+id/action_imcCalculatorFragment_to_resultIMCFragment"
+            app:destination="@id/resultIMCFragment" />
+
+    </fragment>
+
+
     <fragment
         android:id="@+id/resultIMCFragment"
         android:name="com.example.appimccalculator.ResultIMCFragment"
         android:label="fragment_result_i_m_c"
-        tools:layout="@layout/fragment_result_i_m_c" />
+        tools:layout="@layout/fragment_result_i_m_c" >
+
+        <argument
+            android:name="peso"
+            app:argType="integer" />
+
+        <argument
+            android:name="alturaCm"
+            app:argType="integer" />
+
+
+
+    </fragment>
 </navigation>
